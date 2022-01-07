@@ -1,4 +1,4 @@
-from Developing_Applications_with_SQL_Databases_and_Django.secrets import secrets
+from secrets import POSTGRES_PW
 
 # PostgreSQL
 DATABASES = {
