@@ -1,3 +1,5 @@
+import secrets
+
 from secrets import POSTGRES_PW
 
 # PostgreSQL
