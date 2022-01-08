@@ -22,5 +22,15 @@ def enroll(request, course_id):
         course = get_object_or_404(Course, pk=course_id)
         course.total_enrollment += 1
         course.save()
-        return HttpResponseRedirect(reverse(viewname='onlinecourse:popular_course_list'))
+        return HttpResponseRedirect(reverse(viewname='onlinecourse:course_details', args=(course.id,)))
         # It is considered best practice to return an http/response redirect upon success of a post.
+
+def course_details(request, course_id):
+    context = {}
+    if request.method == 'GET':
+        try:
+            course = Course.objects.get(pk=course_id)
+            context['course'] = course
+            return render(request, 'onlinecourse/course_detail.html', context)
+        except Course.DoesNotExist:
+            raise Http404("No course matches the given id.")
