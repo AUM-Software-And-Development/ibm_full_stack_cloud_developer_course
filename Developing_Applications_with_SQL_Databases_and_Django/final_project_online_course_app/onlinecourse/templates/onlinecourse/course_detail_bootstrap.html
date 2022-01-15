@@ -77,7 +77,11 @@
         </div>
 
         <div id="lesson_{{lesson.id}}" class="collapse">
-          <form id="questionform" action="point to a submit view" method="post">
+          <form
+            id="questionform"
+            action="/onlinecourse/submit/{{course.id}}"
+            method="post"
+          >
             {% for question in lesson.question_set.all %}
             <div class="card mt-1">
               <div class="card-header">
